@@ -1,0 +1,11 @@
+pre-commit:
+  piped: true
+  jobs:
+    - name: generate
+      run: just generate
+      stage_fixed: true
+    - name: format
+      run: just format
+      stage_fixed: true
+    - name: check
+      run: just check

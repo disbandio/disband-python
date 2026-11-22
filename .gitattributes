@@ -1,0 +1,4 @@
+# written by scripts/generate.py from _async, so a pull request shows the source's diff
+src/disband/_sync/** linguist-generated
+tests/_sync/** linguist-generated
+src/disband/_sync/_io.py -linguist-generated
