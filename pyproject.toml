@@ -22,7 +22,7 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://disband.io/docs"
+Homepage = "https://disband.io/docs/python"
 Repository = "https://github.com/disbandio/disband-python"
 
 [build-system]
