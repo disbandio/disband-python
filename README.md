@@ -32,8 +32,7 @@ with Disband() as client:
     ready = client.separations.wait(separation.id)
 
     for stem, files in ready.stems.items():
-        # silent stems have no files
-        if files.mp3 is not None:
+        if files.mp3:
             client.download(files.mp3, f"{stem}.mp3")
 ```
 
@@ -138,8 +137,8 @@ async def chunks(file: StemFile) -> AsyncIterator[bytes]:
 @app.get("/stems/{separation_id}/vocals")
 async def vocals(separation_id: str) -> StreamingResponse:
     ready = await client.separations.wait(separation_id)
-    # silent stems have no files
-    if (mp3 := ready.stems["vocals"].mp3) is None:
+    mp3 = ready.stems["vocals"].mp3
+    if not mp3:
         raise HTTPException(404)
     return StreamingResponse(chunks(mp3), media_type="audio/mpeg")
 ```
